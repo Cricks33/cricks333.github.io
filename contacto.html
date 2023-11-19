@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/fondoContacto.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #back-to-top {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        #contact-form {
+            background-color: rgba(0, 0, 0,.8 );
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            width: 300px;
+            text-align: center;
+        }
+
+        #contact-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #contact-form input,
+        #contact-form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid white;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        #contact-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #contact-form #success-message {
+            color: #4CAF50;
+            display: none;
+            margin-top: 10px;
+        }
+        #contact-form #error-message{
+            color: red;
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+    <title>Contact Form</title>
+</head>
+<body class="fondoContacto">
+    <a href="index.html" id="back-to-top">Volver atras</a>
+    <div id="contact-form">
+        <h2>Contacto</h2>
+        <form id="myForm">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Correo:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="button" onclick="submitForm()">Enviar</button>
+        </form>
+        <div id="success-message">Se ha enviado correctamente</div>
+        <div id="error-message">Por favor, completa el correo y el mensaje.</div>
+    </div>
+
+    <script>
+        function submitForm() {
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('message').value;
+
+            if (email && message) {
+                // Aquí puedes agregar lógica para enviar el formulario (puedes usar AJAX, por ejemplo).
+                // En este ejemplo, simplemente mostramos el mensaje de éxito.
+                document.getElementById('success-message').style.display = 'block';
+                document.getElementById('error-message').style.display = 'none';
+            } else {
+                document.getElementById('success-message').style.display = 'none';
+                document.getElementById('error-message').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
